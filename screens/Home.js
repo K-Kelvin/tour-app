@@ -3,8 +3,11 @@ import { StyleSheet, Text, View, ImageBackground } from "react-native";
 import IconText from "../components/IconText";
 import MenuBar from "../components/MenuBar";
 import Button from "../components/Button";
+import { ClockIcon, PlaneIcon, RateIcon } from "../components/Icon";
+import Screen from "../components/Screen";
 
-export default function HomeScreen({ navigator }) {
+
+export default function Home({ navigator }) {
     const [days, setDays] = useState(0)
     const [placeTitle, setPlaceTitle] = useState("McWay Falls, United States")
     const [rating, setRating] = useState("5.0")
@@ -20,41 +23,43 @@ export default function HomeScreen({ navigator }) {
     const subtractDays = () => {setDays(prev => prev - 1)}
 
     return (
-        <View style={{flex: 1}}>
-            <MenuBar/>
-            <ImageBackground source={{uri: "https://picsum.photos/536/354"}} resizeMode="cover" style={styles.background}>
-                <View style={styles.body}>
-                    <View style={{padding: 12}}>
-                        <Text style={{fontWeight: "bold", fontSize: 18, marginBottom: 12}}>
-                            {placeTitle}
-                        </Text>
-                        <View style={{display:"flex", flexDirection:"row", gap: 12, marginBottom: 24}}>
-                            <IconText icon={} text={rating} />
-                            <IconText icon={} text={time} />
-                            <IconText icon={} text={distance} />
-                        </View>
-                        <View style={{display: "flex", flexDirection: "row", gap: 24, alignItems: "center"}}>
-                            <View style={{display: "flex", flexDirection: "row", gap: 8, borderRadius: 100, padding: 6, backgroundColor:"yellow"}}>
-                                <Button title="-" color="#000" onPress={subtractDays} />
-                                <Text>{days}</Text>
-                                <Button title="+" color="#000" onPress={addDays} />
+        <Screen>
+            <View style={{flex: 1}}>
+                <MenuBar/>
+                <ImageBackground source={{uri: "https://picsum.photos/536/354"}} resizeMode="cover" style={styles.background}>
+                    <View style={styles.body}>
+                        <View style={{padding: 12}}>
+                            <Text style={{fontWeight: "bold", fontSize: 18, marginBottom: 12}}>
+                                {placeTitle}
+                            </Text>
+                            <View style={{display:"flex", flexDirection:"row", gap: 12, marginBottom: 24}}>
+                                <IconText icon={RateIcon} text={rating} />
+                                <IconText icon={ClockIcon} text={time} />
+                                <IconText icon={PlaneIcon} text={distance} />
                             </View>
-                            <IconText icon={} text={`${days} Days`} />
+                            <View style={{display: "flex", flexDirection: "row", gap: 24, alignItems: "center"}}>
+                                <View style={{display: "flex", flexDirection: "row", gap: 8, borderRadius: 100, padding: 6, backgroundColor:"yellow"}}>
+                                    <Button title="-" color="#000" onPress={subtractDays} />
+                                    <Text>{days}</Text>
+                                    <Button title="+" color="#000" onPress={addDays} />
+                                </View>
+                                <IconText icon={ClockIcon} text={`${days} Days`} />
+                            </View>
+                        </View>
+                        <View style={{padding: 12}}>
+                            <View styles={styles.footer}>
+                                <Text style={styles.totalPrice}>{totalPrice}</Text>
+                                <Button
+                                    title="Book a tour"
+                                    color="#fff"
+                                    onPress={navigateToUserDetails}
+                                />
+                            </View>
                         </View>
                     </View>
-                    <View style={{padding: 12}}>
-                        <View styles={styles.footer}>
-                            <Text style={styles.totalPrice}>{totalPrice}</Text>
-                            <Button
-                                title="Book a tour"
-                                color="#fff"
-                                onPress={navigateToUserDetails}
-                            />
-                        </View>
-                    </View>
-                </View>
-            </ImageBackground>
-        </View>
+                </ImageBackground>
+            </View>
+        </Screen>
     );
 }
 
