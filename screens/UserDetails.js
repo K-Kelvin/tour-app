@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { StyleSheet, Text, View } from "react-native";
+import TextInput from "../components/TextInput";
 
 export default function UserDetails({ navigator }) {
     const [firstName, setFirstName] = useState('')
@@ -14,12 +15,9 @@ export default function UserDetails({ navigator }) {
         <View style={{padding: 12}}>
             <Text style={styles.title}>Enter details</Text>
             <View style={styles.form}>
-                <TextInput
-                    style={{height: 40, borderWidth: 1, borderRadius: 6, paddingHorizontal: 8}}
-                    placeholder="Type here to translate!"
-                    onChangeText={(text) => this.setState({text})}
-                    value={this.state.text}
-                />
+                <TextInput label="First name" placeholder="Enter first name" value={firstName} onChangeText={setFirstName} />
+                <TextInput label="Last name" placeholder="Enter last name" value={lastName} onChangeText={setLastName} />
+                <TextInput label="Email" placeholder="Enter email" value={email} onChangeText={setEmail} />
             </View>
         </View>
     );
