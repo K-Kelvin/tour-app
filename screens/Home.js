@@ -46,8 +46,8 @@ export default function Home({ navigator }) {
                                 <IconText icon={ClockIcon} text={`${days} Days`} />
                             </View>
                         </View>
-                        <View>
-                            <View style={{padding: 12, backgroundColor: "#fff", height: "50%"}}>
+                        <View style={{backgroundColor: "#fff", flex: 1, borderTopLeftRadius: 12, borderTopRightRadius: 12,}}>
+                            <View style={{padding: 12, flex: 1}}>
                                 <View style={{display:"flex", flexDirection: "row", justifyContent: "space-evenly"}}>
                                     <Text style={{fontWeight: "bold"}}>Descriptions</Text>
                                     <Text style={{color:"gray"}}>Facility</Text>
@@ -87,7 +87,6 @@ const styles = StyleSheet.create({
     footer: {
         borderRadius: 12,
         padding: 16,
-        flex: 1,
         display: "flex",
         flexDirection: "row",
         alignItems: "center",
