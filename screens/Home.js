@@ -7,8 +7,8 @@ import { ClockIcon, PlaneIcon, RateIcon } from "../components/Icon";
 import Screen from "../components/Screen";
 
 
-export default function Home({ navigator }) {
-    const [days, setDays] = useState(1)
+export default function Home({ navigation }) {
+    const [days, setDays] = useState(5)
     const [placeTitle, setPlaceTitle] = useState("McWay Falls, United States")
     const [rating, setRating] = useState("5.0")
     const [time, setTime] = useState("7 hours")
@@ -17,7 +17,7 @@ export default function Home({ navigator }) {
     const [totalPrice, setTotalPrice] = useState("$450")
 
     const navigateToUserDetails = () => {
-        navigator.navigate("UserDetails")
+        navigation.navigate("UserDetails")
     }
     const addDays = () => {setDays(prev => prev + 1)}
     const subtractDays = () => {setDays(prev => prev - 1)}
@@ -49,10 +49,10 @@ export default function Home({ navigator }) {
                         <View style={{backgroundColor: "#fff", flex: 1, borderTopLeftRadius: 12, borderTopRightRadius: 12,}}>
                             <View style={{padding: 12, flex: 1}}>
                                 <View style={{display:"flex", flexDirection: "row", justifyContent: "space-evenly"}}>
-                                    <Text style={{fontWeight: "bold"}}>Descriptions</Text>
-                                    <Text style={{color:"gray"}}>Facility</Text>
+                                    <Text style={{fontSize: 18, fontWeight: "bold"}}>Descriptions</Text>
+                                    <Text style={{fontSize: 18, color:"gray"}}>Facility</Text>
                                 </View>
-                                <Text>
+                                <Text style={{fontSize: 16}}>
                                     {description}
                                 </Text>
                             </View>
