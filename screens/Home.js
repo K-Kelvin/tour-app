@@ -8,7 +8,7 @@ import Screen from "../components/Screen";
 
 
 export default function Home({ navigator }) {
-    const [days, setDays] = useState(0)
+    const [days, setDays] = useState(1)
     const [placeTitle, setPlaceTitle] = useState("McWay Falls, United States")
     const [rating, setRating] = useState("5.0")
     const [time, setTime] = useState("7 hours")
@@ -26,7 +26,7 @@ export default function Home({ navigator }) {
         <Screen>
             <View style={{flex: 1}}>
                 <MenuBar/>
-                <ImageBackground source={{uri: "https://picsum.photos/536/354"}} resizeMode="cover" style={styles.background}>
+                <ImageBackground source={{uri: "https://picsum.photos/id/1018/536/354"}} resizeMode="cover" style={styles.background}>
                     <View style={styles.body}>
                         <View style={{padding: 12}}>
                             <Text style={{fontWeight: "bold", fontSize: 18, marginBottom: 12}}>
@@ -38,20 +38,29 @@ export default function Home({ navigator }) {
                                 <IconText icon={PlaneIcon} text={distance} />
                             </View>
                             <View style={{display: "flex", flexDirection: "row", gap: 24, alignItems: "center"}}>
-                                <View style={{display: "flex", flexDirection: "row", gap: 8, borderRadius: 100, padding: 6, backgroundColor:"yellow"}}>
-                                    <Button title="-" color="#000" onPress={subtractDays} />
-                                    <Text>{days}</Text>
-                                    <Button title="+" color="#000" onPress={addDays} />
+                                <View style={{display: "flex", flexDirection: "row", alignItems: "center", gap: 8, borderRadius: 100, padding: 6, backgroundColor:"purple"}}>
+                                    <Button title="-" padding={4} color="#000" onPress={subtractDays} />
+                                    <Text style={{color: "white"}}>{days}</Text>
+                                    <Button title="+" padding={4} color="#000" onPress={addDays} />
                                 </View>
                                 <IconText icon={ClockIcon} text={`${days} Days`} />
                             </View>
                         </View>
-                        <View style={{padding: 12}}>
-                            <View styles={styles.footer}>
+                        <View>
+                            <View style={{padding: 12, backgroundColor: "#fff", height: "50%"}}>
+                                <View style={{display:"flex", flexDirection: "row", justifyContent: "space-evenly"}}>
+                                    <Text style={{fontWeight: "bold"}}>Descriptions</Text>
+                                    <Text style={{color:"gray"}}>Facility</Text>
+                                </View>
+                                <Text>
+                                    {description}
+                                </Text>
+                            </View>
+                            <View style={styles.footer}>
                                 <Text style={styles.totalPrice}>{totalPrice}</Text>
                                 <Button
                                     title="Book a tour"
-                                    color="#fff"
+                                    color="purple"
                                     onPress={navigateToUserDetails}
                                 />
                             </View>
@@ -78,6 +87,7 @@ const styles = StyleSheet.create({
     footer: {
         borderRadius: 12,
         padding: 16,
+        flex: 1,
         display: "flex",
         flexDirection: "row",
         alignItems: "center",

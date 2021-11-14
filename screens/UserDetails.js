@@ -15,7 +15,7 @@ export default function UserDetails({ navigator }) {
 
     return (
         <Screen>
-            <View style={{padding: 12}}>
+            <View style={{padding: 12, flex: 1, padding: 16}}>
                 <Text style={styles.title}>Enter details</Text>
                 <View style={styles.form}>
                     <TextInput label="First name" placeholder="Enter first name" value={firstName} onChangeText={setFirstName} />

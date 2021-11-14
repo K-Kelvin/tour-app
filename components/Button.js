@@ -3,8 +3,8 @@ import { Pressable, Text, StyleSheet } from 'react-native';
 
 export default function Button({ title, onPress=()=>{}, color="purple", backgroundColor="#fff", ...rest }) {
   return (
-    <Pressable style={{...styles.button, backgroundColor, ...rest }} onPress={onPress}>
-      <Text style={{...styles.text, color }}>{title}</Text>
+    <Pressable style={[styles.button, {backgroundColor, ...rest} ]} onPress={onPress}>
+      <Text style={[styles.text, {color} ]}>{title}</Text>
     </Pressable>
   );
 }
