@@ -9,8 +9,9 @@ export default function MenuBar(){
                 <Text style={{color: "#fff", fontWeight: "bold", fontSize: 16}}>Valkyrie Sky</Text>
                 <Text style={{color: "#fff", fontSize: 14}}>The journey of a lifetime</Text>
             </View>
-            <View style={{display:"flex", flexDirection:"row", gap: 12}}>
+            <View style={{display:"flex", flexDirection:"row"}}>
                 <SearchIcon />
+                <View style={{marginRight: 12}} />
                 <OptionsIcon />
             </View>
         </View>

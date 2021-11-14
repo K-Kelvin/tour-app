@@ -18,12 +18,12 @@ export default function TextInput({ label, placeholder, value, onChangeText }){
 const styles = StyleSheet.create({
     container: {
         display: "flex",
-        gap: 4,
     },
     label: {
         color: "#000",
         fontSize: 16,
         textAlign: "left",
+        marginBottom: 4,
     },
     input: {
         height: 40, 

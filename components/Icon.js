@@ -1,18 +1,16 @@
 import React from "react";
-import { TouchableOpacity } from "react-native";
 import { Icon as RNEIcon } from "react-native-elements";
 
 export default function Icon({ name, onPress=()=>{}, color="white", style={} }) {
     return (
-        <TouchableOpacity onPress={onPress}>
-            <RNEIcon 
-                name={name}
-                type="feather"
-                color={color}
-                size={18}
-                style={style}
-            />
-        </TouchableOpacity>
+        <RNEIcon 
+            name={name}
+            type="feather"
+            color={color}
+            size={18}
+            style={style}
+            onPress={onPress}
+        />
     )
 }
 

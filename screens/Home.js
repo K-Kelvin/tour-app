@@ -32,17 +32,20 @@ export default function Home({ navigation }) {
                             <Text style={{fontWeight: "bold", fontSize: 18, marginBottom: 12}}>
                                 {placeTitle}
                             </Text>
-                            <View style={{display:"flex", flexDirection:"row", gap: 12, marginBottom: 24}}>
+                            <View style={{display:"flex", flexDirection:"row", marginBottom: 24}}>
                                 <IconText icon={RateIcon} text={rating} />
+                                <View style={{marginRight: 12}} />
                                 <IconText icon={ClockIcon} text={time} />
+                                <View style={{marginRight: 12}} />
                                 <IconText icon={PlaneIcon} text={distance} />
                             </View>
-                            <View style={{display: "flex", flexDirection: "row", gap: 24, alignItems: "center"}}>
-                                <View style={{display: "flex", flexDirection: "row", alignItems: "center", gap: 8, borderRadius: 100, padding: 6, backgroundColor:"purple"}}>
-                                    <Button title="-" padding={4} color="#000" onPress={subtractDays} />
+                            <View style={{display: "flex", flexDirection: "row", alignItems: "center"}}>
+                                <View style={{display: "flex", flexDirection: "row", alignItems: "center", borderRadius: 100, padding: 6, backgroundColor:"purple"}}>
+                                    <Button title="-" padding={4} marginRight={8} color="#000" onPress={subtractDays} />
                                     <Text style={{color: "white"}}>{days}</Text>
-                                    <Button title="+" padding={4} color="#000" onPress={addDays} />
+                                    <Button title="+" padding={4} marginLeft={8} color="#000" onPress={addDays} />
                                 </View>
+                                <View style={{marginLeft: 24}} />
                                 <IconText icon={ClockIcon} text={`${days} Days`} />
                             </View>
                         </View>

@@ -16,9 +16,9 @@ export default function UserDetails({ navigation }) {
     return (
         <Screen>
             <View style={{padding: 12, flex: 1, padding: 16}}>
-                <View style={{display: 'flex', flexDirection: 'row', alignItems: 'center', gap: 36}}>
+                <View style={{display: 'flex', flexDirection: 'row', alignItems: 'center'}}>
                     <Button color="#000" backgroundColor="#fff" title="Back" onPress={goBack} />
-                    <Text style={styles.title}>Enter details</Text>
+                    <Text style={[styles.title, {marginLeft: 36}]}>Enter details</Text>
                 </View>
                 <View style={styles.form}>
                     <TextInput label="First name" placeholder="Enter first name" value={firstName} onChangeText={setFirstName} />
@@ -47,6 +47,5 @@ const styles = StyleSheet.create({
     },
     form: {
         display: "flex",
-        gap: 12,
     }
 });
