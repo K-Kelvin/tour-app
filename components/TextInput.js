@@ -1,5 +1,6 @@
 import React from "react"
 import { StyleSheet, Text, View, TextInput as RNTextInput } from "react-native"
+import purple from "../constants"
 
 export default function TextInput({ label, placeholder, value, onChangeText }){
     return (
@@ -18,6 +19,7 @@ export default function TextInput({ label, placeholder, value, onChangeText }){
 const styles = StyleSheet.create({
     container: {
         display: "flex",
+        marginBottom: 16,
     },
     label: {
         color: "#000",
@@ -26,10 +28,10 @@ const styles = StyleSheet.create({
         marginBottom: 4,
     },
     input: {
-        height: 40, 
         borderWidth: 1, 
         borderRadius: 8,
-        borderColor: "purple", 
-        paddingHorizontal: 8
+        borderColor: purple.violet, 
+        paddingVertical: 10,
+        paddingHorizontal: 16
     }
 })

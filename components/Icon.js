@@ -1,16 +1,18 @@
 import React from "react";
+import { Pressable } from "react-native";
 import { Icon as RNEIcon } from "react-native-elements";
 
-export default function Icon({ name, onPress=()=>{}, color="white", style={} }) {
+export default function Icon({ name, type="feather", onPress=null, color="white", style={} }) {
     return (
-        <RNEIcon 
-            name={name}
-            type="feather"
-            color={color}
-            size={18}
-            style={style}
-            onPress={onPress}
-        />
+        <Pressable onPress={(e) => {}}>
+            <RNEIcon 
+                name={name}
+                type={type}
+                color={color}
+                size={18}
+                style={style}
+            />
+        </Pressable>
     )
 }
 
@@ -31,5 +33,5 @@ export function ClockIcon(onPress=()=>{}, style={}){
 }
 
 export function PlaneIcon(onPress=()=>{}, style={}){
-    return <Icon name="send" color="#000" onPress={onPress} style={style} />
+    return <Icon name="flight" type="material" color="#000" onPress={onPress} style={style} />
 }

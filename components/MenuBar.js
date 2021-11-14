@@ -1,6 +1,7 @@
 import React from "react"
 import { StyleSheet, Text, View } from "react-native"
 import { OptionsIcon, SearchIcon } from "./Icon"
+import purple from "../constants"
 
 export default function MenuBar(){
     return (
@@ -11,7 +12,7 @@ export default function MenuBar(){
             </View>
             <View style={{display:"flex", flexDirection:"row"}}>
                 <SearchIcon />
-                <View style={{marginRight: 12}} />
+                <View style={{marginRight: 16}} />
                 <OptionsIcon />
             </View>
         </View>
@@ -27,6 +28,6 @@ const styles = StyleSheet.create({
         justifyContent: "space-between",
         paddingHorizontal: 16,
         color: "#fff",
-        backgroundColor: "purple",
+        backgroundColor: purple.iris,
     }
 })

@@ -5,15 +5,16 @@ import MenuBar from "../components/MenuBar";
 import Button from "../components/Button";
 import { ClockIcon, PlaneIcon, RateIcon } from "../components/Icon";
 import Screen from "../components/Screen";
+import purple from "../constants";
 
-
+const radius = 16;
 export default function Home({ navigation }) {
     const [days, setDays] = useState(5)
     const [placeTitle, setPlaceTitle] = useState("McWay Falls, United States")
     const [rating, setRating] = useState("5.0")
     const [time, setTime] = useState("7 hours")
     const [distance, setDistance] = useState("200 km")
-    const [description, setDescription] = useState("McWay Falls is an 80-foot-tall waterfall on the coast of Big Sur in central...")
+    const [description, setDescription] = useState("McWay Falls is an 80-foot-tall waterfall on the coast of Big Sur in central California that flows year-round from McWay Creek in Julia Pfeifler Burns State Park, about 37 miles south of Carmel, into the Pacific Ocean")
     const [totalPrice, setTotalPrice] = useState("$450")
 
     const navigateToUserDetails = () => {
@@ -26,7 +27,7 @@ export default function Home({ navigation }) {
         <Screen>
             <View style={{flex: 1}}>
                 <MenuBar/>
-                <ImageBackground source={{uri: "https://picsum.photos/id/1018/536/354"}} resizeMode="cover" style={styles.background}>
+                <ImageBackground source={{uri: "https://picsum.photos/id/1018/1600/500"}} resizeMode="cover" style={styles.background}>
                     <View style={styles.body}>
                         <View style={{padding: 12}}>
                             <Text style={{fontWeight: "bold", fontSize: 18, marginBottom: 12}}>
@@ -34,22 +35,22 @@ export default function Home({ navigation }) {
                             </Text>
                             <View style={{display:"flex", flexDirection:"row", marginBottom: 24}}>
                                 <IconText icon={RateIcon} text={rating} />
-                                <View style={{marginRight: 12}} />
+                                <View style={{marginRight: 20}} />
                                 <IconText icon={ClockIcon} text={time} />
-                                <View style={{marginRight: 12}} />
+                                <View style={{marginRight: 20}} />
                                 <IconText icon={PlaneIcon} text={distance} />
                             </View>
                             <View style={{display: "flex", flexDirection: "row", alignItems: "center"}}>
-                                <View style={{display: "flex", flexDirection: "row", alignItems: "center", borderRadius: 100, padding: 6, backgroundColor:"purple"}}>
-                                    <Button title="-" padding={4} marginRight={8} color="#000" onPress={subtractDays} />
+                                <View style={styles.btnAddSubtract}>
+                                    <Button title="-" padding={4} paddingVertical={0} marginRight={8} color="#fff" backgroundColor="rgba(255, 0, 255, 0.5)" onPress={subtractDays} />
                                     <Text style={{color: "white"}}>{days}</Text>
-                                    <Button title="+" padding={4} marginLeft={8} color="#000" onPress={addDays} />
+                                    <Button title="+" padding={4} paddingVertical={0} marginLeft={8} color="#fff" backgroundColor="rgba(255, 0, 255, 0.5)" onPress={addDays} />
                                 </View>
                                 <View style={{marginLeft: 24}} />
                                 <IconText icon={ClockIcon} text={`${days} Days`} />
                             </View>
                         </View>
-                        <View style={{backgroundColor: "#fff", flex: 1, borderTopLeftRadius: 12, borderTopRightRadius: 12,}}>
+                        <View style={{backgroundColor: "#fff", flex: 1, borderTopLeftRadius: 12, borderTopRightRadius: 12}}>
                             <View style={{padding: 12, flex: 1}}>
                                 <View style={{display:"flex", flexDirection: "row", justifyContent: "space-evenly"}}>
                                     <Text style={{fontSize: 18, fontWeight: "bold"}}>Descriptions</Text>
@@ -63,7 +64,7 @@ export default function Home({ navigation }) {
                                 <Text style={styles.totalPrice}>{totalPrice}</Text>
                                 <Button
                                     title="Book a tour"
-                                    color="purple"
+                                    color={purple.violet}
                                     onPress={navigateToUserDetails}
                                 />
                             </View>
@@ -85,7 +86,16 @@ const styles = StyleSheet.create({
         height: "60%",
         borderTopLeftRadius: appBorderRadius,
         borderTopRightRadius: appBorderRadius,
-        backgroundColor: "lightblue"
+        backgroundColor: purple.thistle
+    },
+    btnAddSubtract: {
+        display: "flex", 
+        flexDirection: "row", 
+        alignItems: "center", 
+        borderRadius: 100, 
+        paddingVertical: 6, 
+        paddingHorizontal: 12, 
+        backgroundColor:"rgba(128, 0, 128, 0.5)",
     },
     footer: {
         borderRadius: 12,
@@ -94,7 +104,7 @@ const styles = StyleSheet.create({
         flexDirection: "row",
         alignItems: "center",
         justifyContent: "space-between",
-        backgroundColor: "purple",
+        backgroundColor: purple.violet,
     },
     totalPrice: {
         fontSize: 20,
